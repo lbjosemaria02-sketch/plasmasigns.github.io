@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLASMA SIGNS | Arte de Motor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .logo-font {
+            font-family: 'Arial Black', Impact, sans-serif;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans antialiased">
+
+    <!-- Banner de Envío Gratis -->
+    <div class="bg-blue-600 text-white text-center py-2 text-xs md:text-sm font-bold uppercase tracking-widest fixed w-full z-30 top-0 shadow-lg">
+        🚚 ENVÍO GRATIS A TODA LA PENÍNSULA
+    </div>
+
+    <!-- Navegación -->
+    <nav class="bg-black border-b border-gray-800 fixed w-full z-20 top-8 md:top-9">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="#" class="flex-shrink-0 flex items-center justify-center w-full md:w-auto h-full py-2 hover:opacity-80 transition-opacity">
+                    <img src="imagenes-web/Logo plasma signs.png" alt="PLASMA SIGNS" class="h-12 md:h-14 object-contain">
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#productos" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium uppercase tracking-wider">Productos</a>
+                    <a href="#galeria" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium uppercase tracking-wider">Galería</a>
+                    <a href="#resenas" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium uppercase tracking-wider">Valoraciones</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section con Imagen de Fondo -->
+    <div class="relative bg-black pt-40 pb-12 sm:pt-48 sm:pb-16 lg:pb-32 flex items-center justify-center min-h-[70vh]">
+        
+        <!-- Capa de imagen de fondo -->
+        <div class="absolute inset-0 top-8 md:top-9 bg-[url('imagenes-web/ejemplo%20foto%20de%20coche%20personalizado.jpg')] bg-cover bg-center bg-no-repeat"></div>
+        <!-- Degradado: Claro arriba, se oscurece al bajar y se funde con el negro al final -->
+        <div class="absolute inset-0 top-8 md:top-9 bg-gradient-to-b from-black/10 via-black/50 to-black"></div>
+        
+        <!-- Contenido -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-10">
+            <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-7xl shadow-black drop-shadow-lg">
+                <span class="block text-white">Tu vehículo, tu arte</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-300 sm:text-xl md:mt-6 md:text-2xl font-medium drop-shadow-md">
+                El regalo definitivo para los amantes de la gasolina, la velocidad y el motor. 
+            </p>
+            <p class="mt-2 max-w-md mx-auto text-base text-gray-400 sm:text-lg">
+                Decora tu espacio con la silueta precisa de lo que más te apasiona.
+            </p>
+            <div class="mt-8 max-w-md mx-auto sm:flex sm:justify-center md:mt-10">
+                <div class="rounded-md shadow">
+                    <a href="#productos" class="w-full flex items-center justify-center px-8 py-3 border border-white text-base font-bold rounded-sm text-black bg-white hover:bg-gray-200 md:py-4 md:text-lg md:px-10 transition-colors uppercase tracking-wide">
+                        Ver Catálogo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Catálogo de Productos (Coche y Moto) -->
+    <div id="productos" class="bg-black py-16 border-b border-gray-900">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-white text-center mb-12 uppercase tracking-wide">Pedidos a medida</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <!-- Producto Coche -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-gray-600 transition-colors flex flex-col shadow-2xl">
+                    <img src="imagenes-web/Foto producto para pedido personalizado coche a partir de imagen.jfif" alt="Silueta Coche" class="w-full h-80 object-cover bg-gray-800">
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Silueta de Coche a Medida</h3>
+                            <p class="text-gray-400 mb-6">Convierte la foto de tu coche en una obra de arte. El detalle perfecto para cualquier loco de los coches.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-4">
+                            <!-- Link a la nueva página -->
+                            <a href="coche.html" class="px-6 py-4 bg-white text-black font-bold uppercase tracking-wider rounded-sm hover:bg-gray-200 w-full text-center transition-colors">
+                                Pide el tuyo ya
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto Moto -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-gray-600 transition-colors flex flex-col shadow-2xl">
+                    <img src="imagenes-web/Foto producto para pedido personalizado moto a partir de imagen.jfif" alt="Silueta Moto" class="w-full h-80 object-cover bg-gray-800">
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Silueta de Moto a Medida</h3>
+                            <p class="text-gray-400 mb-6">Inmortaliza tu moto. Diseño exclusivo a partir de la foto que nos envíes, lista para colgar en tu pared.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-4">
+                            <!-- Link a la nueva página -->
+                            <a href="moto.html" class="px-6 py-4 bg-white text-black font-bold uppercase tracking-wider rounded-sm hover:bg-gray-200 w-full text-center transition-colors">
+                                Pide el tuyo ya
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Galería de Trabajos Reales -->
+    <div id="galeria" class="bg-black py-16 border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-white text-center mb-4 uppercase tracking-wide">Galería de Trabajos</h2>
+            <p class="text-center text-gray-400 mb-12">Calidad real, sin renders. Así lucen nuestras piezas terminadas decorando espacios.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Foto 1 -->
+                <img src="imagenes-web/valoración gr yaris.jpg" alt="Toyota GR Yaris" class="w-full h-[400px] object-cover rounded-lg border border-gray-800 hover:opacity-90 transition-opacity">
+                <!-- Foto 2 -->
+                <img src="imagenes-web/Foto silueta casco motocross.jpg" alt="Casco Motocross" class="w-full h-[400px] object-cover rounded-lg border border-gray-800 hover:opacity-90 transition-opacity">
+                <!-- Foto 3 -->
+                <img src="imagenes-web/Foto siluet motocicleta.jpg" alt="Silueta Motocicleta" class="w-full h-[400px] object-cover rounded-lg border border-gray-800 hover:opacity-90 transition-opacity">
+                <!-- Foto 4 -->
+                <img src="imagenes-web/foto decoracion 1.PNG" alt="Golf GTI Decoración" class="w-full h-[400px] object-cover rounded-lg border border-gray-800 hover:opacity-90 transition-opacity">
+                <!-- Foto 5 -->
+                <img src="imagenes-web/foto decoracion 3.PNG" alt="Simulador Decoración" class="w-full h-[400px] object-cover rounded-lg border border-gray-800 hover:opacity-90 transition-opacity">
+                <!-- Foto 6 -->
+                <img src="imagenes-web/Foto decoración 4.png" alt="Detalle de cerca" class="w-full h-[400px] object-cover rounded-lg border border-gray-800 hover:opacity-90 transition-opacity">
+            </div>
+        </div>
+    </div>
+
+    <!-- Reseñas / Valoraciones -->
+    <div id="resenas" class="bg-black py-16 border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-white text-center mb-12 uppercase tracking-wide">Nuestros Clientes</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Patxi G. -->
+                <div class="bg-gray-900 p-5 rounded-lg border border-gray-800 flex items-center justify-between shadow-lg">
+                    <div class="flex-1 pr-4">
+                        <div class="flex text-yellow-400 mb-1 text-sm">★★★★★</div>
+                        <h4 class="font-bold text-white mb-1 text-base">Citroën C15</h4>
+                        <p class="text-gray-400 italic text-sm leading-snug">"Inmejorable, trato perfecto y muy rapido"</p>
+                        <p class="text-gray-500 text-xs mt-3">- Patxi G.</p>
+                    </div>
+                    <div class="w-24 h-24 shrink-0 rounded-md overflow-hidden border border-gray-700 bg-black">
+                        <img src="imagenes-web/valoracion citroen c15.jpg" alt="Citroën C15" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Daniel -->
+                <div class="bg-gray-900 p-5 rounded-lg border border-gray-800 flex items-center justify-between shadow-lg">
+                    <div class="flex-1 pr-4">
+                        <div class="flex text-yellow-400 mb-1 text-sm">★★★★★</div>
+                        <h4 class="font-bold text-white mb-1 text-base">Toyota GR Yaris</h4>
+                        <p class="text-gray-400 italic text-sm leading-snug">"Genial, súper profesionales!!!"</p>
+                        <p class="text-gray-500 text-xs mt-3">- Daniel.</p>
+                    </div>
+                    <div class="w-24 h-24 shrink-0 rounded-md overflow-hidden border border-gray-700 bg-black">
+                        <img src="imagenes-web/valoración gr yaris.jpg" alt="Toyota GR Yaris" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Juan Antonio R. -->
+                <div class="bg-gray-900 p-5 rounded-lg border border-gray-800 flex items-center justify-between shadow-lg">
+                    <div class="flex-1 pr-4">
+                        <div class="flex text-yellow-400 mb-1 text-sm">★★★★★</div>
+                        <h4 class="font-bold text-white mb-1 text-base">BMW E28</h4>
+                        <p class="text-gray-400 italic text-sm leading-snug">"Gran vendedor y sobretodo un profesional, me ha ido informando de todo y muy amable. Genial!"</p>
+                        <p class="text-gray-500 text-xs mt-3">- Juan Antonio R.</p>
+                    </div>
+                    <div class="w-24 h-24 shrink-0 rounded-md overflow-hidden border border-gray-700 bg-black">
+                        <img src="imagenes-web/valoracion bmw e28.jpg" alt="BMW E28" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer de Contacto Completo -->
+    <footer class="bg-black py-12 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+            <img src="imagenes-web/Logo plasma signs.png" alt="PLASMA SIGNS" class="h-14 opacity-90 mb-8">
+            
+            <div class="flex flex-col md:flex-row gap-6 md:gap-12 items-center text-gray-300 mb-8 font-medium">
+                <a href="https://wa.me/34633936692" target="_blank" class="flex items-center hover:text-white transition-colors text-lg">
+                    <svg class="w-6 h-6 mr-3 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.115.55 4.175 1.597 5.996L.103 23.473l5.59-1.464c1.745.952 3.714 1.455 5.742 1.455h.005c6.645 0 12.03-5.384 12.03-12.03S18.675 0 12.031 0zm0 21.439c-1.802 0-3.564-.484-5.111-1.401l-.367-.217-3.799.996.985-3.705-.238-.378C2.568 15.178 2.02 13.626 2.02 12.033c0-5.526 4.498-10.024 10.027-10.024 2.678 0 5.197 1.042 7.09 2.936 1.892 1.893 2.935 4.412 2.935 7.089 0 5.527-4.497 10.024-10.025 10.024h-.005zm5.498-7.514c-.302-.15-1.787-.881-2.064-.982-.278-.1-.479-.15-.681.15-.202.3-.778.982-.954 1.183-.177.201-.354.226-.656.076-1.512-.751-2.585-1.472-3.568-3.136-.207-.35-.02-.538.13-.688.134-.135.302-.351.453-.526.15-.176.202-.302.302-.503.1-.202.05-.378-.026-.527-.076-.15-.681-1.642-.932-2.247-.245-.589-.493-.509-.681-.518-.176-.008-.378-.01-.579-.01-.2 0-.528.075-.805.376-.277.301-1.057 1.031-1.057 2.513 0 1.483 1.082 2.915 1.233 3.116.151.201 2.122 3.238 5.14 4.54.718.309 1.278.494 1.714.633.72.228 1.375.196 1.893.119.58-.087 1.787-.73 2.04-1.436.252-.705.252-1.309.176-1.436-.076-.126-.278-.202-.58-.352z"></path>
+                    </svg>
+                    +34 633 936 692
+                </a>
+                <a href="https://instagram.com/plasma_signs" target="_blank" class="flex items-center hover:text-white transition-colors text-lg">
+                    <span class="mr-3 text-2xl">📸</span> @plasma_signs
+                </a>
+                <a href="mailto:plasmasigns.contacto@gmail.com" class="flex items-center hover:text-white transition-colors text-lg">
+                    <span class="mr-3 text-2xl">✉️</span> plasmasigns.contacto@gmail.com
+                </a>
+            </div>
+
+            <p class="text-gray-600 text-sm">&copy; 2026 PLASMA SIGNS. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
