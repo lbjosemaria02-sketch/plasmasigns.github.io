@@ -38,7 +38,7 @@
             
             <!-- Izquierda: Slider de Imágenes -->
             <div class="flex flex-col">
-                <div class="relative w-full overflow-hidden rounded-lg shadow-2xl border border-gray-800 group h-[400px] md:h-[500px]">
+                <div class="relative w-full overflow-hidden rounded-lg shadow-2xl border border-gray-800 group aspect-[3/4]">
                     <div id="slider" class="carousel-inner flex h-full w-full" style="width: 200%;">
                         <div class="w-1/2 h-full flex-shrink-0">
                             <img src="imagenes-web/Foto producto para pedido personalizado moto a partir de imagen.jfif" alt="Silueta Moto 1" class="w-full h-full object-cover">
@@ -231,10 +231,10 @@
         let selectedSize = '70';
 
         // ENLACES DE STRIPE (AQUÍ DEBES PONER LOS 3 ENLACES DIFERENTES SEGÚN EL PRECIO)
-        const stripeLinks = {
-            '70': 'https://buy.stripe.com/cNi7sMfrB0jP04q2WTejK00', // El enlace actual que vale 49,99€
-            '80': 'https://buy.stripe.com/cNi7sMfrB0jP04q2WTejK00', // <-- CAMBIAR POR EL LINK DE STRIPE DE 59,99€
-            '90': 'https://buy.stripe.com/cNi7sMfrB0jP04q2WTejK00'  // <-- CAMBIAR POR EL LINK DE STRIPE DE 65,00€
+                const stripeLinks = {
+            '70': 'https://buy.stripe.com/28EeVea7h1nTeZkgNJejK04',
+            '80': 'https://buy.stripe.com/eVq7sMdjtaYtaJ42WTejK05',
+            '90': 'https://buy.stripe.com/28EbJ22EP9Up3gC695ejK06'
         };
 
         sizeBtns.forEach(btn => {
