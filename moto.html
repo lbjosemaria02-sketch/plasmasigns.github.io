@@ -94,7 +94,7 @@
                         <p class="text-xs text-gray-700 mt-1">Acertarás segur✅ El detalle definitivo para cualquier amante de las motos y la velocidad.</p>
                     </div>
 
-                    <h3 class="font-bold text-2xl text-white mb-6">Realiza tu pedido</h3>
+                    <h3 class="font-bold text-2xl text-gray-900 mb-6">Realiza tu pedido</h3>
 
                     <!-- PASO 1: Elegir Tamaño -->
                     <p class="mb-3 text-gray-700 text-sm font-bold uppercase tracking-widest flex items-center justify-between">
@@ -118,13 +118,13 @@
 
                     <!-- PASO 3: Tu Foto -->
                     <p class="mb-4 text-gray-700 text-sm font-bold uppercase tracking-widest">Paso 3: Tu Foto</p>
-                    <button id="upload_widget" class="w-full py-4 bg-black text-gray-900 font-bold uppercase tracking-wide rounded-sm hover:bg-gray-200 transition-colors mb-4">
+                    <button id="upload_widget" class="w-full py-4 bg-black text-white font-bold uppercase tracking-wide rounded-sm hover:bg-gray-200 transition-colors mb-4">
                         📸 Subir Foto de mi Moto
                     </button>
 
                     <div id="success_message" class="hidden text-center w-full">
                         <div class="bg-green-900 border border-green-500 text-green-100 px-4 py-3 rounded mb-4 shadow-inner">
-                            ✅ ¡Foto subida con ééxito! Lista para el taller.
+                            ✅ ¡Foto subida con éxito! Lista para el taller.
                         </div>
                         <p class="mb-4 text-gray-700 text-sm font-bold uppercase tracking-widest text-left mt-6">Paso 4: Finalizar Compra</p>
                         <button id="checkout_button" class="w-full py-4 bg-blue-600 text-white font-bold uppercase tracking-wide rounded-sm hover:bg-blue-700 transition-colors shadow-lg">
@@ -138,7 +138,7 @@
                         <p class="text-gray-600 text-xs mb-4 leading-relaxed">
                             Si quieres añadir una matrícula, un nombre o dejar alguna nota especial sobre tu diseño, <strong>escríbenos por WhatsApp justo después de hacer la compra</strong>. Indícanos tu número de pedido y la modificación que quieres hacer.
                         </p>
-                        <a href="https://wa.me/34633936692" target="_blank" class="inline-flex items-center justify-center px-6 py-3 border border-gray-600 rounded-sm text-white hover:bg-gray-800 transition-colors w-full uppercase tracking-wider text-sm font-bold">
+                        <a href="https://wa.me/34633936692" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-[#25D366] text-white rounded-md hover:bg-[#20bd5a] transition-colors w-full uppercase tracking-wider text-sm font-bold">
                             💬 Enviar detalles por WhatsApp
                         </a>
                     </div>
@@ -158,7 +158,7 @@
 
         <!-- Nueva sección de regalos -->
         <div class="mt-12 max-w-4xl mx-auto bg-white shadow-xl p-8 rounded-lg border border-gray-200 shadow-xl">
-            <h3 class="font-bold text-2xl text-white mb-6 text-center uppercase tracking-wide">🎁 ¿Qué incluye cada pedido?</h3>
+            <h3 class="font-bold text-2xl text-gray-900 mb-6 text-center uppercase tracking-wide">🎁 ¿Qué incluye cada pedido?</h3>
             <div class="flex flex-col md:flex-row gap-8 items-center">
                 <div class="flex-1 text-gray-700 space-y-4">
                     <p class="flex items-start">
@@ -224,9 +224,9 @@
 
         // Lógica de Selección de Precios y Stripe Links
         const sizeBtns = document.querySelectorAll('.size-btn');
-        const priceDisplay = document.getElementById('price_displa💳);
-        const oldPriceDisplay = document.getElementById('old_price_displa💳);
-        const btnPriceDisplay = document.getElementById('btn_price_displa💳);
+        const priceDisplay = document.getElementById('price_display');
+        const oldPriceDisplay = document.getElementById('old_price_display');
+        const btnPriceDisplay = document.getElementById('btn_price_display');
         const discountBadge = document.getElementById('discount_badge');
         let selectedSize = '70';
 
