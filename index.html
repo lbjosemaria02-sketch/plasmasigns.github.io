@@ -267,7 +267,7 @@
         </div>
     </footer>
 
-    <script>
+        <script>
         document.addEventListener('DOMContentLoaded', () => {
             const hEl = document.getElementById('cd-hours');
             const mEl = document.getElementById('cd-minutes');
@@ -275,24 +275,19 @@
             
             if (!hEl) return;
             
-            const DURATION = 48 * 60 * 60 * 1000; 
-            let endTime = localStorage.getItem('plasma_offer_end');
-            const now = new Date().getTime();
+            // Ciclo global exacto: 35 horas y 57 minutos (en milisegundos)
+            const CYCLE_DURATION = (35 * 60 * 60 * 1000) + (57 * 60 * 1000); 
+            // Un punto de anclaje en el tiempo fijo para que todos los usuarios del mundo vean el mismo contador
+            const ANCHOR_TIME = 1700000000000; 
             
-            if (!endTime || now > parseInt(endTime)) {
-                endTime = now + DURATION;
-                localStorage.setItem('plasma_offer_end', endTime);
-            }
-            
-            setInterval(() => {
-                const current = new Date().getTime();
-                let diff = parseInt(endTime) - current;
+            function updateGlobalTimer() {
+                const now = new Date().getTime();
                 
-                if (diff < 0) {
-                    endTime = current + (20 * 60 * 1000); // Reset to 20 minutes
-                    localStorage.setItem('plasma_offer_end', endTime);
-                    diff = 20 * 60 * 1000;
-                }
+                // Calculamos cuánto tiempo sobra de dividir el tiempo actual entre los ciclos de 35h 57m
+                const elapsedInCycle = (now - ANCHOR_TIME) % CYCLE_DURATION;
+                
+                // Lo que falta para que termine el ciclo actual
+                const diff = CYCLE_DURATION - elapsedInCycle;
                 
                 const hours = Math.floor(diff / (1000 * 60 * 60));
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -301,7 +296,10 @@
                 hEl.innerText = hours.toString().padStart(2, '0');
                 mEl.innerText = minutes.toString().padStart(2, '0');
                 sEl.innerText = seconds.toString().padStart(2, '0');
-            }, 1000);
+            }
+            
+            setInterval(updateGlobalTimer, 1000);
+            updateGlobalTimer(); // Llamada inicial para que no parpadee al cargar
         });
     </script>
 </body>
