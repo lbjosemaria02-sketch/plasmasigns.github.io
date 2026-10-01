@@ -64,7 +64,7 @@
             <div class="flex flex-col justify-center">
                 <h1 class="text-4xl font-extrabold uppercase tracking-wide text-gray-900 mb-4">Silueta de Coche a Medida</h1>
                 <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                    Da un aspecto muy personal a cualquier lugar y llévate una parte de tu pasión contig✅ Convierte ese coche que tanto amas en el centro de todas las miradas.
+                    Da un aspecto muy personal a cualquier lugar y llévate una parte de tu pasión contigo. Convierte ese coche que tanto amas en el centro de todas las miradas.
                 </p>
                 
                 <h3 class="text-xl font-bold border-b border-gray-200 pb-2 mb-4">Características del Producto</h3>
@@ -106,9 +106,9 @@
                         <span class="bg-red-600 text-white text-[10px] px-2 py-0.5 rounded font-bold animate-pulse">OFERTA LIMITADA</span>
                     </p>
                     <div class="grid grid-cols-3 gap-3 mb-2">
-                        <button type="button" class="size-btn border-2 border-red-500 bg-red-500 text-white rounded py-2 font-bold transition-colors" data-size="70" data-price="49,99" data-old="83,99" data-discount="-40%">70 cm</button>
-                        <button type="button" class="size-btn border-2 border-gray-300 bg-white text-gray-900 hover:bg-gray-50 hover:border-gray-500 rounded py-2 font-bold transition-colors" data-size="80" data-price="54,99" data-old="109,99" data-discount="-50%">80 cm</button>
-                        <button type="button" class="size-btn border-2 border-gray-300 bg-white text-gray-900 hover:bg-gray-50 hover:border-gray-500 rounded py-2 font-bold transition-colors" data-size="90" data-price="74,99" data-old="107,99" data-discount="-30%">90 cm</button>
+                        <button type="button" class="size-btn border-2 border-red-500 bg-red-500 text-white rounded py-2 font-bold transition-all duration-300 hover:scale-105 shadow-md" data-size="70" data-price="49,99" data-old="83,99" data-discount="-40%">70 cm</button>
+                        <button type="button" class="size-btn border-2 border-gray-300 bg-white text-gray-900 hover:border-gray-900 rounded py-2 font-bold transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md" data-size="80" data-price="54,99" data-old="109,99" data-discount="-50%">80 cm</button>
+                        <button type="button" class="size-btn border-2 border-gray-300 bg-white text-gray-900 hover:border-gray-900 rounded py-2 font-bold transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md" data-size="90" data-price="74,99" data-old="124,99" data-discount="-40%">90 cm</button>
                     </div>
                     <div class="mb-8 flex items-end gap-3">
                         <span class="text-4xl font-extrabold text-red-500" id="price_display">49,99 €</span>
@@ -244,14 +244,12 @@
 
         sizeBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Quitar estilo activo a todos
+                                // Quitar estilo activo a todos
                 sizeBtns.forEach(b => {
-                    b.classList.remove('border-red-500', 'bg-red-500', 'text-white');
-                    b.classList.add('border-gray-300', 'bg-white', 'text-gray-900');
+                    b.className = 'size-btn border-2 border-gray-300 bg-white text-gray-900 hover:border-gray-900 rounded py-2 font-bold transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md';
                 });
                 // Poner estilo activo al clickeado
-                btn.classList.remove('border-gray-300', 'bg-white', 'text-gray-900');
-                btn.classList.add('border-red-500', 'bg-red-500', 'text-white');
+                btn.className = 'size-btn border-2 border-red-500 bg-red-500 text-white rounded py-2 font-bold transition-all duration-300 hover:scale-105 shadow-md';
                 
                 selectedSize = btn.dataset.size;
                 const newPrice = btn.dataset.price + ' €';
