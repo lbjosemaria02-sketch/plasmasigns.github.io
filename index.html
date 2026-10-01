@@ -44,7 +44,29 @@
         <div class="absolute inset-0 top-8 md:top-9 bg-gradient-to-b from-black/10 via-black/50 to-black"></div>
         
         <!-- Contenido -->
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-10">
+                <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-10">
+            <!-- Cuenta Atrás -->
+            <div class="mb-12 inline-block bg-red-700/90 border-2 border-red-500 rounded-lg shadow-[0_0_30px_rgba(220,38,38,0.6)] p-6 md:p-8 transform hover:scale-105 transition-transform duration-500">
+                <h2 class="text-xl md:text-3xl font-extrabold text-white uppercase tracking-wider mb-4 drop-shadow-md">
+                    🔥 Oferta en todos los productos personalizados 🔥
+                </h2>
+                <div class="flex items-center justify-center gap-3 md:gap-4 text-white">
+                    <div class="bg-black/60 rounded border border-red-500/50 px-4 md:px-6 py-3 flex flex-col shadow-inner">
+                        <span id="cd-hours" class="text-5xl md:text-6xl font-bold font-mono">48</span>
+                        <span class="text-[10px] md:text-xs uppercase tracking-widest mt-1 text-gray-300">Horas</span>
+                    </div>
+                    <span class="text-4xl font-bold mb-6 animate-pulse">:</span>
+                    <div class="bg-black/60 rounded border border-red-500/50 px-4 md:px-6 py-3 flex flex-col shadow-inner">
+                        <span id="cd-minutes" class="text-5xl md:text-6xl font-bold font-mono">00</span>
+                        <span class="text-[10px] md:text-xs uppercase tracking-widest mt-1 text-gray-300">Min</span>
+                    </div>
+                    <span class="text-4xl font-bold mb-6 animate-pulse">:</span>
+                    <div class="bg-black/60 rounded border border-red-500/50 px-4 md:px-6 py-3 flex flex-col shadow-inner">
+                        <span id="cd-seconds" class="text-5xl md:text-6xl font-bold font-mono">00</span>
+                        <span class="text-[10px] md:text-xs uppercase tracking-widest mt-1 text-gray-300">Seg</span>
+                    </div>
+                </div>
+            </div>
             <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-7xl shadow-black drop-shadow-lg">
                 <span class="block text-white">Tu vehículo, tu arte</span>
             </h1>
@@ -245,5 +267,42 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hEl = document.getElementById('cd-hours');
+            const mEl = document.getElementById('cd-minutes');
+            const sEl = document.getElementById('cd-seconds');
+            
+            if (!hEl) return;
+            
+            const DURATION = 48 * 60 * 60 * 1000; 
+            let endTime = localStorage.getItem('plasma_offer_end');
+            const now = new Date().getTime();
+            
+            if (!endTime || now > parseInt(endTime)) {
+                endTime = now + DURATION;
+                localStorage.setItem('plasma_offer_end', endTime);
+            }
+            
+            setInterval(() => {
+                const current = new Date().getTime();
+                let diff = parseInt(endTime) - current;
+                
+                if (diff < 0) {
+                    endTime = current + (20 * 60 * 1000); // Reset to 20 minutes
+                    localStorage.setItem('plasma_offer_end', endTime);
+                    diff = 20 * 60 * 1000;
+                }
+                
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                hEl.innerText = hours.toString().padStart(2, '0');
+                mEl.innerText = minutes.toString().padStart(2, '0');
+                sEl.innerText = seconds.toString().padStart(2, '0');
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
