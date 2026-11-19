@@ -13,9 +13,13 @@
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans antialiased">
 
-    <!-- Banner de Envío Gratis -->
-    <div class="bg-slate-900 text-yellow-500 text-center py-2 text-xs md:text-sm font-bold uppercase tracking-widest fixed w-full z-30 top-0 shadow-lg border-b border-yellow-500/20">
-        🚚 ENVÍO GRATIS A TODA LA PENÍNSULA
+        <!-- Banner de Envío Gratis y Aviso de Navidad -->
+    <div class="bg-slate-900 text-yellow-500 text-center py-2 px-4 text-xs md:text-sm font-bold uppercase tracking-widest fixed w-full z-30 top-0 shadow-lg border-b border-yellow-500/20 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+        <span>🚚 ENVÍO GRATIS A TODA LA PENÍNSULA</span>
+        <span id="aviso-navidad" class="hidden text-white flex items-center">
+            <span class="mx-2 text-yellow-500/50 hidden md:inline">|</span>
+            <span>🎄 Pide antes del <span id="fecha-limite-texto" class="text-yellow-400 underline decoration-yellow-400">18 de diciembre</span> y llega para Navidad</span>
+        </span>
     </div>
 
     <!-- Navegación -->
@@ -101,19 +105,17 @@
                     <h3 class="font-bold text-2xl text-gray-900 mb-6">Realiza tu pedido</h3>
 
                     <!-- PASO 1: Elegir Tamaño -->
-                    <p class="mb-3 text-gray-700 text-sm font-bold uppercase tracking-widest flex items-center justify-between">
-                        <span>Paso 1: Elige el tamaño</span>
-                        <span class="bg-red-600 text-white text-[10px] px-2 py-0.5 rounded font-bold animate-pulse">OFERTA LIMITADA</span>
+                    <p class="mb-3 text-gray-700 text-sm font-bold uppercase tracking-widest">
+                        Paso 1: Elige el tamaño
                     </p>
-                    <div class="grid grid-cols-3 gap-3 mb-2">
-                        <button type="button" class="size-btn border-2 border-red-500 bg-red-500 text-white rounded py-2 font-bold transition-all duration-300 hover:scale-105 shadow-md" data-size="70" data-price="49,99" data-old="83,99" data-discount="-40%">70 cm</button>
-                        <button type="button" class="size-btn border-2 border-gray-300 bg-white text-gray-900 hover:border-gray-900 rounded py-2 font-bold transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md" data-size="80" data-price="54,99" data-old="109,99" data-discount="-50%">80 cm</button>
-                        <button type="button" class="size-btn border-2 border-gray-300 bg-white text-gray-900 hover:border-gray-900 rounded py-2 font-bold transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md" data-size="90" data-price="74,99" data-old="124,99" data-discount="-40%">90 cm</button>
+                    <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-3">
+                        <button type="button" class="size-btn border-2 border-red-500 bg-red-500 text-white rounded py-2.5 px-1 text-center font-bold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-105 shadow-md" data-size="70" data-price="49,99">70 cm · 49,99 €</button>
+                        <button type="button" class="size-btn border-2 border-gray-300 bg-white text-gray-900 hover:border-gray-900 rounded py-2.5 px-1 text-center font-bold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md" data-size="80" data-price="54,99">80 cm · 54,99 €</button>
+                        <button type="button" class="size-btn border-2 border-gray-300 bg-white text-gray-900 hover:border-gray-900 rounded py-2.5 px-1 text-center font-bold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md" data-size="90" data-price="74,99">90 cm · 74,99 €</button>
                     </div>
-                    <div class="mb-8 flex items-end gap-3">
-                        <span class="text-4xl font-extrabold text-red-500" id="price_display">49,99 €</span>
-                        <span class="text-xl font-bold text-gray-400 line-through mb-1" id="old_price_display">83,99 €</span>
-                        <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wider mb-2" id="discount_badge">-40%</span>
+                    <div class="mb-8 flex items-baseline gap-2">
+                        <span class="text-4xl font-extrabold text-gray-900" id="price_display">49,99 €</span>
+                        <span class="text-sm text-gray-500 font-medium">IVA y envío incluido</span>
                     </div>
 
                     <!-- PASO 2: Datos del Pedido -->
@@ -131,9 +133,25 @@
                             ✅ ¡Foto subida con éxito! Lista para el taller.
                         </div>
                         <p class="mb-4 text-gray-700 text-sm font-bold uppercase tracking-widest text-left mt-6">Paso 4: Finalizar Compra</p>
+                        
+                        <!-- Casilla obligatoria de condiciones y privacidad -->
+                        <div class="mb-4 text-left bg-gray-50 p-3 rounded border border-gray-200">
+                            <label class="flex items-start gap-2.5 cursor-pointer select-none">
+                                <input type="checkbox" id="acepto_condiciones" class="mt-1 w-4 h-4 text-red-600 rounded border-gray-300 focus:ring-red-500 cursor-pointer shrink-0">
+                                <span class="text-xs text-gray-700 leading-snug">
+                                    He leído y acepto las <a href="condiciones.html" target="_blank" class="text-red-600 font-bold underline hover:text-red-700">Condiciones de venta</a> y la <a href="privacidad.html" target="_blank" class="text-red-600 font-bold underline hover:text-red-700">Política de privacidad</a>.
+                                </span>
+                            </label>
+                            <p id="error_condiciones" class="hidden text-xs text-red-600 font-bold mt-2 ml-6">⚠️ Debes marcar la casilla para poder continuar con el pago.</p>
+                        </div>
+
                         <button id="checkout_button" class="w-full py-4 bg-blue-600 text-white font-bold uppercase tracking-wide rounded-sm hover:bg-blue-700 transition-colors shadow-lg">
                             💳 Pagar <span id="btn_price_display">49,99 €</span>
                         </button>
+                        
+                        <p class="mt-3 text-xs text-gray-500 text-center leading-relaxed">
+                            Producto personalizado: no admite devolución por desistimiento. Si llega con algún defecto, te lo solucionamos.
+                        </p>
                     </div>
 
                     <!-- Contacto / Peticiones especiales -->
@@ -207,6 +225,14 @@
                 </a>
             </div>
 
+                        <!-- Enlaces Legales -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs text-gray-400 mb-6 font-medium">
+                <a href="aviso-legal.html" class="hover:text-white transition-colors">Aviso Legal</a>
+                <a href="privacidad.html" class="hover:text-white transition-colors">Política de Privacidad</a>
+                <a href="cookies.html" class="hover:text-white transition-colors">Política de Cookies</a>
+                <a href="condiciones.html" class="hover:text-white transition-colors">Condiciones de Venta</a>
+            </div>
+
             <p class="text-gray-600 text-sm">&copy; 2026 PLASMA SIGNS. Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -230,13 +256,11 @@
         // Lógica de Selección de Precios y Stripe Links
         const sizeBtns = document.querySelectorAll('.size-btn');
         const priceDisplay = document.getElementById('price_display');
-        const oldPriceDisplay = document.getElementById('old_price_display');
         const btnPriceDisplay = document.getElementById('btn_price_display');
-        const discountBadge = document.getElementById('discount_badge');
         let selectedSize = '70';
 
         // ENLACES DE STRIPE (AQUÍ DEBES PONER LOS 3 ENLACES DIFERENTES SEGÚN EL PRECIO)
-                const stripeLinks = {
+        const stripeLinks = {
             '70': 'https://buy.stripe.com/bJedRa6V5eaF9F07d9ejK01',
             '80': 'https://buy.stripe.com/bJedRabbl3w14kG695ejK03',
             '90': 'https://buy.stripe.com/4gM4gA93dc2x9F08hdejK02'
@@ -244,22 +268,18 @@
 
         sizeBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                                // Quitar estilo activo a todos
+                // Quitar estilo activo a todos
                 sizeBtns.forEach(b => {
-                    b.className = 'size-btn border-2 border-gray-300 bg-white text-gray-900 hover:border-gray-900 rounded py-2 font-bold transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md';
+                    b.className = 'size-btn border-2 border-gray-300 bg-white text-gray-900 hover:border-gray-900 rounded py-2.5 px-1 text-center font-bold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md';
                 });
                 // Poner estilo activo al clickeado
-                btn.className = 'size-btn border-2 border-red-500 bg-red-500 text-white rounded py-2 font-bold transition-all duration-300 hover:scale-105 shadow-md';
+                btn.className = 'size-btn border-2 border-red-500 bg-red-500 text-white rounded py-2.5 px-1 text-center font-bold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-105 shadow-md';
                 
                 selectedSize = btn.dataset.size;
                 const newPrice = btn.dataset.price + ' €';
-                const oldPrice = btn.dataset.old + ' €';
-                const discount = btn.dataset.discount;
                 
-                priceDisplay.textContent = newPrice;
-                if(oldPriceDisplay) oldPriceDisplay.textContent = oldPrice;
-                if(btnPriceDisplay) btnPriceDisplay.textContent = newPrice;
-                if(discountBadge) discountBadge.textContent = discount;
+                if (priceDisplay) priceDisplay.textContent = newPrice;
+                if (btnPriceDisplay) btnPriceDisplay.textContent = newPrice;
             });
         });
 
@@ -280,10 +300,29 @@
 
         document.getElementById("upload_widget").addEventListener("click", () => myWidget.open(), false);
         
-        // Pagar redirigiendo al enlace de Stripe del tamaño seleccionado
+        // Validación de checkbox y pago con Stripe
+        const checkboxEl = document.getElementById('acepto_condiciones');
+        if (checkboxEl) {
+            checkboxEl.addEventListener('change', () => {
+                const errorMsg = document.getElementById('error_condiciones');
+                if (checkboxEl.checked && errorMsg) {
+                    errorMsg.classList.add('hidden');
+                }
+            });
+        }
+
         document.getElementById("checkout_button").addEventListener("click", () => {
+            const checkbox = document.getElementById('acepto_condiciones');
+            const errorMsg = document.getElementById('error_condiciones');
+            
+            if (!checkbox || !checkbox.checked) {
+                if (errorMsg) errorMsg.classList.remove('hidden');
+                if (checkbox) checkbox.focus();
+                return;
+            }
+            if (errorMsg) errorMsg.classList.add('hidden');
+
             if(fotoIdParaStripe !== '') {
-                // Obtener nombre del cliente y limpiarlo para que Stripe lo acepte en la URL (solo letras, números y guiones)
                 let nombreInput = document.getElementById('nombre_cliente').value.trim();
                 let nombreLimpio = nombreInput.replace(/[^a-zA-Z0-9]/g, '_'); 
                 if (nombreLimpio === '') nombreLimpio = 'Cliente';
@@ -294,5 +333,6 @@
             }
         }, false);
     </script>
+    <script src="navidad.js"></script>
 </body>
 </html>
