@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿?<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -121,8 +121,20 @@
                     </div>
 
                     <!-- PASO 2: Datos del Pedido -->
-                    <p class="mb-2 text-gray-700 text-sm font-bold uppercase tracking-widest">Paso 2: Tu Nombre (Para el envío)</p>
-                    <input type="text" id="nombre_cliente" placeholder="Ej: Juan Pérez..." class="w-full bg-white text-gray-900 border border-gray-300 shadow-sm rounded p-3 mb-6 focus:border-red-500 focus:outline-none transition-colors">
+                    <p class="mb-2 text-gray-700 text-sm font-bold uppercase tracking-widest">Paso 2: Datos del Pedido</p>
+                    <label for="nombre_cliente" class="block mb-1 text-xs font-bold text-gray-700 uppercase">Tu Nombre (Para el envío)</label>
+                    <input type="text" id="nombre_cliente" placeholder="Ej: Juan Pérez..." class="w-full bg-white text-gray-900 border border-gray-300 shadow-sm rounded p-3 mb-4 focus:border-red-500 focus:outline-none transition-colors">
+
+                    <label for="telefono_cliente" class="block mb-1 text-xs font-bold text-gray-700 uppercase">Teléfono (WhatsApp)</label>
+                    <input type="tel" id="telefono_cliente" placeholder="Ej: 612 345 678" class="w-full bg-white text-gray-900 border border-gray-300 shadow-sm rounded p-3 focus:border-red-500 focus:outline-none transition-colors">
+                    <p class="mt-1 text-xs text-gray-500 mb-3">Opcional: te escribimos para enseñarte cómo quedará tu diseño</p>
+
+                    <label class="flex items-start gap-2 mb-6 cursor-pointer select-none">
+                        <input type="checkbox" id="acepto_whatsapp" class="mt-0.5 w-4 h-4 text-red-600 rounded border-gray-300 focus:ring-red-500 cursor-pointer shrink-0">
+                        <span class="text-xs text-gray-700 leading-snug">
+                            Acepto que Plasma Signs me contacte por WhatsApp sobre este pedido
+                        </span>
+                    </label>
 
                     <!-- PASO 3: Tu Foto -->
                     <p class="mb-4 text-gray-700 text-sm font-bold uppercase tracking-widest">Paso 3: Tu Foto</p>
@@ -169,16 +181,6 @@
                         </p>
                     </div>
 
-                    <!-- Contacto / Peticiones especiales -->
-                    <div class="mt-6 border-t border-gray-200 pt-6 text-center">
-                        <h4 class="text-gray-900 font-bold mb-2">¿Quieres añadir un nombre o matrícula?</h4>
-                        <p class="text-gray-600 text-xs mb-4 leading-relaxed">
-                            Si quieres añadir una matrícula, un nombre o dejar alguna nota especial sobre tu diseño, <strong>escríbenos por WhatsApp justo después de hacer la compra</strong>. Indícanos tu número de pedido y la modificación que quieres hacer.
-                        </p>
-                        <a href="https://wa.me/34633936692" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-[#25D366] text-white rounded-md hover:bg-[#20bd5a] transition-colors w-full uppercase tracking-wider text-sm font-bold">
-                            💬 Enviar detalles por WhatsApp
-                        </a>
-                    </div>
                 </div>
 
                 </div>
@@ -371,7 +373,38 @@
             }
         });
 
-        document.getElementById("upload_widget").addEventListener("click", () => myWidget.open(), false);
+                document.getElementById("upload_widget").addEventListener("click", () => {
+            const nombreVal = document.getElementById('nombre_cliente').value.trim();
+            const telInput = document.getElementById('telefono_cliente');
+            const telVal = telInput ? telInput.value.trim() : '';
+            const checkWhatsapp = document.getElementById('acepto_whatsapp');
+            const aceptaWhatsappVal = (checkWhatsapp && checkWhatsapp.checked) ? 'si' : 'no';
+            const tamanoVal = selectedSize + 'cm';
+
+            // Etiquetas (tags) para Cloudinary
+            let tagsList = ['pedido_web', 'tamano_' + tamanoVal, 'whatsapp_autorizado_' + aceptaWhatsappVal];
+            if (nombreVal !== '') {
+                tagsList.push('cliente_' + nombreVal.replace(/[^a-zA-Z0-9_-]/g, '_'));
+            }
+            if (telVal !== '') {
+                tagsList.push('tel_' + telVal.replace(/[^a-zA-Z0-9]/g, ''));
+            }
+
+            // Metadatos contextuales (context) para Cloudinary
+            const contextData = {
+                nombre: nombreVal !== '' ? nombreVal : 'No indicado',
+                tamano: tamanoVal,
+                telefono: telVal !== '' ? telVal : 'No indicado',
+                autoriza_whatsapp: aceptaWhatsappVal === 'si' ? 'Si' : 'No'
+            };
+
+            myWidget.update({
+                tags: tagsList,
+                context: contextData
+            });
+
+            myWidget.open();
+        }, false);
         
         // Validación de checkbox y pago con Stripe
         const checkboxEl = document.getElementById('acepto_condiciones');
